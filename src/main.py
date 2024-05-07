@@ -169,15 +169,6 @@ print("Recall (HAM):", recall_ham)
 print("F1-Score (SPAM):", f1_spam)
 print("F1-Score (HAM):", f1_ham)
 
-# text2 = "WINNER!! As a valued network customer you have been selected to receivea �900 prize reward! To claim call 09061701461. Claim code KL341. Valid 12 hours only."
-# # text2 = "I HAVE A DATE ON SUNDAY WITH WILL!!"
-
-# print(text2)
-# print("Checking text...")
-# p_text2_is_spam, words = p_text_is_spam_given_words(text2)
-# print(f"Text is spam: {p_text2_is_spam:.5f}")
-# print("The following words were caught:", words)
-
 verbose_printing = True
 exit = False
 while not exit:
