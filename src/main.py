@@ -193,6 +193,7 @@ while not exit:
         print(f"With a {p_text_is_spam:.2%} probability of being SPAM")
         print("Caught words:", words)
         if verbose_printing:
+            print("Probabilities:")
             for word in words:
                 print(f"'{word}' -> Probability: {p_word(word)}")
     elif option == "2":
