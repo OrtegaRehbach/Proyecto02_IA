@@ -178,13 +178,16 @@ print("F1-Score (HAM):", f1_ham)
 # print(f"Text is spam: {p_text2_is_spam:.5f}")
 # print("The following words were caught:", words)
 
+verbose_printing = True
 exit = False
 while not exit:
     print(DIVIDER)
     print("Spam & Ham Classifier")
+    print(f"Verbose: {verbose_printing}")
     print(DIVIDER)
     print("1. Enter text")
-    print("2. Exit")
+    print("2. Toggle verbose printing")
+    print("3. Exit")
     print(DIVIDER)
     option = input("Enter option: ")
     print(DIVIDER)
@@ -192,11 +195,19 @@ while not exit:
         text = input("Enter text: ")
         print(DIVIDER)
         print("Calculating probability...")
-        p_text_is_spam, words = p_text_is_spam_given_words(text, verbose=True)
+        p_text_is_spam, words = p_text_is_spam_given_words(text, verbose=verbose_printing)
         print("Done!")
         print(DIVIDER)
         print("Text was found to be {}".format("SPAM" if p_text_is_spam >= MIN_SPAM_PROB else "HAM"))
         print(f"With a {p_text_is_spam:.2%} probability of being SPAM")
         print("Caught words:", words)
-    if option == "2":
+        if verbose_printing:
+            for word in words:
+                print(f"'{word}' -> Probability: {p_word(word)}")
+    elif option == "2":
+        verbose_printing = not verbose_printing
+        print(f"Toggled verobse printing to '{verbose_printing}'")
+    elif option == "3":
         exit = True
+    else:
+        print(f"'{option}' is not a valid option")
