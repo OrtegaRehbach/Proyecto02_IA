@@ -40,7 +40,7 @@ def is_not_stopword(token: str):
     return token.lower() not in stop_words
 
 def is_not_punctuation(token: str):
-    return token not in string.punctuation
+    return all([c not in string.punctuation for c in token])
 
 def is_not_digits(token: str):
     return not token.isnumeric()
